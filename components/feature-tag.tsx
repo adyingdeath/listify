@@ -22,6 +22,10 @@ export default function FeatureTag({
         unknown: {
             containerClass: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
             icon: HelpCircle
+        },
+        normal: {
+            containerClass: "bg-gray-100 text-black dark:bg-gray-800 dark:text-gray-300",
+            icon: () => <div className="hidden"></div>
         }
     };
 

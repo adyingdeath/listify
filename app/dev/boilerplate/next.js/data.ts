@@ -1,10 +1,3 @@
-// Define feature status
-export enum FeatureStatus {
-    WITH = "with",
-    WITHOUT = "without",
-    UNKNOWN = "unknown"
-}
-
 // Define all available features
 export type Feature = {
     id: string;
@@ -13,7 +6,7 @@ export type Feature = {
 
 // Feature with status
 export type FeatureWithStatus = Feature & {
-    status: FeatureStatus;
+    status: "with" | "without" | "unknown" | "normal";
 };
 
 // All available features
@@ -46,6 +39,7 @@ export const FEATURES = {
     // Tech Stack Features
     TAILWIND: { id: "tailwind", label: "Tailwind" },
     SHADCN_UI: { id: "shadcn-ui", label: "Shadcn UI" },
+    DAISYUI: { id: "daisyui", label: "DaisyUI" },
 } as const;
 
 // Type for the values in FEATURES
@@ -82,32 +76,36 @@ const TEMPLATES: TemplatesType = {
         image: "/res/dev/boilerplate/next.js/shipfast.webp",
         description: "ShipFast is a comprehensive Next.js boilerplate designed for rapid SaaS and web application development. It integrates essential features including Stripe/LemonSqueezy for payments, MongoDB/Supabase for database management, and Google OAuth/Magic Links for authentication. The boilerplate comes with a modern UI built on Tailwind CSS and Shadcn UI, complete with dark mode support. It also includes pre-built components for SEO optimization, blog functionality, email integration, and waitlist management. Perfect for entrepreneurs looking to launch their web projects quickly without dealing with repetitive technical setups.",
         short_features: [
-            { ...FEATURES.STRIPE, status: FeatureStatus.WITH },
-            { ...FEATURES.LEMON_SQUEEZY, status: FeatureStatus.WITH },
-            { ...FEATURES.GOOGLE_AUTH, status: FeatureStatus.WITH },
-            { ...FEATURES.EMAIL, status: FeatureStatus.WITH },
-            { ...FEATURES.DARK_MODE, status: FeatureStatus.WITH },
+            { ...FEATURES.STRIPE, status: "with" },
+            { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+            { ...FEATURES.LANDING_PAGE, status: "with" },
+            { ...FEATURES.GOOGLE_AUTH, status: "with" },
+            { ...FEATURES.EMAIL, status: "with" },
+            { ...FEATURES.DARK_MODE, status: "with" },
         ],
         features: {
             "Core": [
-                { ...FEATURES.BLOG, status: FeatureStatus.WITH },
-                { ...FEATURES.SEO, status: FeatureStatus.WITH },
-                { ...FEATURES.EMAIL, status: FeatureStatus.WITH },
-                { ...FEATURES.WAITLIST, status: FeatureStatus.WITH },
+                { ...FEATURES.BLOG, status: "with" },
+                { ...FEATURES.SEO, status: "with" },
+                { ...FEATURES.EMAIL, status: "with" },
+                { ...FEATURES.WAITLIST, status: "with" },
+                { ...FEATURES.LANDING_PAGE, status: "with" },
             ],
             "Payment": [
-                { ...FEATURES.STRIPE, status: FeatureStatus.WITH },
-                { ...FEATURES.LEMON_SQUEEZY, status: FeatureStatus.WITH },
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+            ],
+            "Tech Stack": [
+                { ...FEATURES.TAILWIND, status: "normal" },
+                { ...FEATURES.DAISYUI, status: "normal" },
+                { ...FEATURES.SUPABASE, status: "normal" },
             ],
             "Others": [
-                { ...FEATURES.TAILWIND, status: FeatureStatus.WITH },
-                { ...FEATURES.SHADCN_UI, status: FeatureStatus.WITH },
-                { ...FEATURES.DARK_MODE, status: FeatureStatus.WITH },
-                { ...FEATURES.GOOGLE_AUTH, status: FeatureStatus.WITH },
-                { ...FEATURES.MAGIC_LINKS, status: FeatureStatus.WITH },
-                { ...FEATURES.MONGODB, status: FeatureStatus.WITH },
-                { ...FEATURES.SUPABASE, status: FeatureStatus.WITH },
-                { ...FEATURES.VERCEL, status: FeatureStatus.WITH },
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.DARK_MODE, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" },
+                { ...FEATURES.MONGODB, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" },
             ]
         },
     },
