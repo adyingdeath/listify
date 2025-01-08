@@ -5,11 +5,20 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
+import { FaAngleRight } from "react-icons/fa6";
 import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
 
 export default function Page() {
     return (
         <div>
+            <div className="flex items-center gap-1 text-sm font-light text-gray-800 dark:text-gray-200">
+                <a href="/dev/boilerplate/next.js">
+                    List
+                </a>
+                <FaAngleRight className="w-3 h-3" />
+                <div>Shipfast</div>
+            </div>
+
             <div className="flex flex-row items-center justify-between gap-2">
                 <h1 className="text-2xl font-bold">{TEMPLATES.shipfast.name}</h1>
                 <a href={TEMPLATES.shipfast.url} target="_blank" rel="noopener noreferrer">
