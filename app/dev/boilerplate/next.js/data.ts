@@ -85,6 +85,8 @@ const TEMPLATES: TemplatesType = {
             { ...FEATURES.STRIPE, status: FeatureStatus.WITH },
             { ...FEATURES.LEMON_SQUEEZY, status: FeatureStatus.WITH },
             { ...FEATURES.GOOGLE_AUTH, status: FeatureStatus.WITH },
+            { ...FEATURES.EMAIL, status: FeatureStatus.WITH },
+            { ...FEATURES.DARK_MODE, status: FeatureStatus.WITH },
         ],
         features: {
             "Core": [
