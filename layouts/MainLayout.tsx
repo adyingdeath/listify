@@ -10,34 +10,17 @@ import { cn } from '@/lib/utils';
 
 export default function MainLayout({
     children,
-    title,
 }: Readonly<{
     children: React.ReactNode;
-    title: string;
 }>) {
-    const [isLoading, setIsLoading] = useState(true);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const pathname = usePathname();
-
-    useEffect(() => {
-        // Simulate loading state
-        const timer = setTimeout(() => setIsLoading(false), 1000);
-        return () => clearTimeout(timer);
-    }, []);
 
     const navigationItems = [
         { name: 'Home', href: '/', icon: Home },
         { name: 'Lists', href: '/lists', icon: List },
     ];
-
-    if (isLoading) {
-        return (
-            <div className="flex h-screen w-full items-center justify-center">
-                <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-            </div>
-        );
-    }
 
     return (
         <div className={cn(
