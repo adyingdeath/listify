@@ -42,7 +42,7 @@ export default async function Page({ params }: PageProps) {
             </div>
 
             <Image src={template.image} alt={template.name} width={500} height={500}
-                className="w-full rounded-lg my-4" />
+                className="w-full rounded-lg my-4 shadow-md" />
             <Table>
                 <TableBody>
                     <TableRow>

@@ -41,40 +41,48 @@ export default function Page() {
 
                 </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap">
                 {Object.entries(TEMPLATES).map(([key, item], index) => (onlyFree ? item.price.includes("Free") : true) && (
-                    <Card className="max-sm:w-full sm:w-1/2" key={index}>
-                        <CardHeader>
-                            <CardTitle>
-                                <div className="flex flex-row items-center gap-2">
-                                    <Image src={item.icon} alt={item.name} width={20} height={20} />
-                                    {item.name}
+                    <div className="max-sm:w-full sm:w-1/2 p-2 box-border">
+                        <Card className="w-full h-full flex flex-col" key={index}>
+                            <CardHeader>
+                                <CardTitle>
+                                    <div className="flex flex-row items-center gap-2">
+                                        <Image src={item.icon} alt={item.name} width={20} height={20} />
+                                        {item.name}
+                                    </div>
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                                <div className="flex flex-col justify-between h-full">
+                                    <div>
+                                        <Table>
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableCell className="font-medium">Price</TableCell>
+                                                    <TableCell className="text-right">{item.price}</TableCell>
+                                                </TableRow>
+                                            </TableBody>
+                                        </Table>
+                                        <div className="flex flex-wrap gap-2 mt-2">
+                                            {item.short_features.map((feature) => (
+                                                <FeatureTag key={feature.id} feature={feature.label} variant={feature.status} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <Separator className="my-2" />
+                                        <div className="flex flex-row-reverse">
+                                            <a href={`/dev/boilerplate/next.js/${key}`} target="_blank">
+                                                <Button variant="ghost">
+                                                    Detail<HiMiniArrowTopRightOnSquare className="w-4 h-4" /></Button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <Table>
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell className="font-medium">Price</TableCell>
-                                        <TableCell className="text-right">{item.price}</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                            <div className="flex flex-wrap gap-2 mt-2">
-                                {item.short_features.map((feature) => (
-                                    <FeatureTag key={feature.id} feature={feature.label} variant={feature.status} />
-                                ))}
-                            </div>
-                            <Separator className="my-2" />
-                            <div className="flex flex-row-reverse">
-                                <a href={`/dev/boilerplate/next.js/${key}`} target="_blank">
-                                    <Button variant="ghost">
-                                        Detail<HiMiniArrowTopRightOnSquare className="w-4 h-4" /></Button>
-                                </a>
-                            </div>
-                        </CardContent>
-                    </Card>
+                            </CardContent>
+                        </Card>
+                    </div>
                 ))}
             </div>
         </div>

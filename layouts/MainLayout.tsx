@@ -82,10 +82,10 @@ export default function MainLayout({
                         </div>
                         <div className="flex items-center gap-4">
                             <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
-                                隐私政策
+                                Privacy Policy
                             </Link>
                             <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">
-                                使用条款
+                                Terms of Use
                             </Link>
                         </div>
                     </div>
