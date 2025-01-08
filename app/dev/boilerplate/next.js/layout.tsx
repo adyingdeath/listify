@@ -6,7 +6,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <MainLayout title="Boilerplate">
+        <MainLayout>
             {children}
         </MainLayout>
     );

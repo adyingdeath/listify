@@ -1,19 +1,18 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import { useState } from 'react';
 import { LuSun, LuMoon, LuGithub } from "react-icons/lu";
 import { Home, List } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import MobileMenu from '@/components/mobile-menu';
 
 export default function MainLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const pathname = usePathname();
 
@@ -77,45 +76,9 @@ export default function MainLayout({
                         >
                             <LuGithub className="h-5 w-5" />
                         </a>
-                        <button
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="md:hidden rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        >
-                            {isMobileMenuOpen ? (
-                                <IoCloseOutline className="h-5 w-5" />
-                            ) : (
-                                <IoMenuOutline className="h-5 w-5" />
-                            )}
-                        </button>
+                        <MobileMenu navigationItems={navigationItems} />
                     </div>
                 </nav>
-
-                {/* Mobile menu */}
-                {isMobileMenuOpen && (
-                    <div className="md:hidden border-t">
-                        <div className="container mx-auto px-4 py-2 space-y-1">
-                            {navigationItems.map((item) => {
-                                const Icon = item.icon;
-                                return (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        className={cn(
-                                            'flex items-center gap-2 px-3 py-2 rounded-md transition-colors',
-                                            pathname === item.href
-                                                ? 'bg-primary/10 text-primary'
-                                                : 'hover:bg-primary/5'
-                                        )}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                        <Icon className="h-4 w-4" />
-                                        <span>{item.name}</span>
-                                    </Link>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
             </header>
 
             {/* Main content */}
