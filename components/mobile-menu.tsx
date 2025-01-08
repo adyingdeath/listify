@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import { IoClose, IoMenu } from "react-icons/io5";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -48,30 +48,30 @@ export default function MobileMenu({ navigationItems }: MobileMenuProps) {
                 aria-label={isMobileMenuOpen ? "关闭菜单" : "打开菜单"}
             >
                 {isMobileMenuOpen ? (
-                    <IoCloseOutline className="h-5 w-5" />
+                    <IoClose className="h-5 w-5" />
                 ) : (
-                    <IoMenuOutline className="h-5 w-5" />
+                    <IoMenu className="h-5 w-5" />
                 )}
             </button>
 
             {/* Mobile menu portal */}
-            {mounted && isMobileMenuOpen && createPortal(
+            {mounted && createPortal(
                 <div 
-                    className="md:hidden fixed inset-0 z-50"
+                    className={cn(
+                        "md:hidden fixed inset-0 z-50 backdrop-blur-sm transition-all duration-300 flex items-center",
+                        isMobileMenuOpen ? "visible" : "invisible"
+                    )}
                     role="dialog"
                     aria-modal="true"
                 >
                     <div 
-                        className={cn(
-                            "fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300",
-                            isMobileMenuOpen ? "opacity-100" : "opacity-0"
-                        )}
+                        className="w-24 h-full inset-0 bg-black/20 transition-opacity duration-300 opacity-5"
                         onClick={() => setIsMobileMenuOpen(false)}
                         aria-hidden="true"
                     />
                     <div 
                         className={cn(
-                            "fixed inset-y-0 right-0 w-full max-w-sm bg-background shadow-xl transition-transform duration-300 ease-out",
+                            "flex-grow inset-y-0 right-0 w-full bg-background shadow-xl transition-transform duration-300 ease-out",
                             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                         )}
                     >
@@ -82,7 +82,7 @@ export default function MobileMenu({ navigationItems }: MobileMenuProps) {
                                 className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                                 aria-label="关闭菜单"
                             >
-                                <IoCloseOutline className="h-5 w-5" />
+                                <IoClose className="h-5 w-5" />
                             </button>
                         </div>
                         <nav className="relative h-[calc(100vh-4rem)] overflow-y-auto px-2 py-4">
