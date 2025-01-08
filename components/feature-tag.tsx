@@ -1,7 +1,7 @@
 import { Check, X, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type FeatureTagVariant = "with" | "without" | "unknown";
+type FeatureTagVariant = "with" | "without" | "unknown" | "normal";
 
 export default function FeatureTag({ 
     feature, 

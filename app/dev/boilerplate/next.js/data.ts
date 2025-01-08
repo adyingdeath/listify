@@ -19,6 +19,7 @@ export const FEATURES = {
     GOOGLE_AUTH: { id: "google-auth", label: "Google OAuth" },
     GITHUB_AUTH: { id: "github-auth", label: "Github OAuth" },
     MAGIC_LINKS: { id: "magic-links", label: "Magic Links" },
+    EMAIL_AUTH: { id: "email-auth", label: "Email Auth" },
 
     // Database Features
     MONGODB: { id: "mongodb", label: "MongoDB" },
@@ -40,6 +41,7 @@ export const FEATURES = {
     TAILWIND: { id: "tailwind", label: "Tailwind" },
     SHADCN_UI: { id: "shadcn-ui", label: "Shadcn UI" },
     DAISYUI: { id: "daisyui", label: "DaisyUI" },
+    TYPESCRIPT: { id: "typescript", label: "Typescript" },
 } as const;
 
 // Type for the values in FEATURES
@@ -95,16 +97,20 @@ const TEMPLATES: TemplatesType = {
                 { ...FEATURES.STRIPE, status: "with" },
                 { ...FEATURES.LEMON_SQUEEZY, status: "with" },
             ],
+            "Auth": [
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" },
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+            ],
             "Tech Stack": [
-                { ...FEATURES.TAILWIND, status: "normal" },
-                { ...FEATURES.DAISYUI, status: "normal" },
-                { ...FEATURES.SUPABASE, status: "normal" },
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.TAILWIND, status: "with" },
+                { ...FEATURES.DAISYUI, status: "with" },
+                { ...FEATURES.SUPABASE, status: "with" },
+                { ...FEATURES.MONGODB, status: "with" },
             ],
             "Others": [
-                { ...FEATURES.GOOGLE_AUTH, status: "with" },
                 { ...FEATURES.DARK_MODE, status: "with" },
-                { ...FEATURES.MAGIC_LINKS, status: "with" },
-                { ...FEATURES.MONGODB, status: "with" },
                 { ...FEATURES.VERCEL, status: "with" },
             ]
         },

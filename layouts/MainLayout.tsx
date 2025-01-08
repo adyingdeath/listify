@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { LuSun, LuMoon, LuGithub } from "react-icons/lu";
 import { Home, List } from 'lucide-react';
 import Link from 'next/link';
@@ -16,16 +16,26 @@ export default function MainLayout({
     const [isDarkMode, setIsDarkMode] = useState(false);
     const pathname = usePathname();
 
+    useEffect(() => {
+        // Check system preference on mount
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setIsDarkMode(true);
+            document.documentElement.classList.add('dark');
+        }
+    }, []);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.documentElement.classList.toggle('dark');
+    };
+
     const navigationItems = [
         { name: 'Home', href: '/', icon: Home },
         { name: 'Lists', href: '/lists', icon: List },
     ];
 
     return (
-        <div className={cn(
-            'min-h-screen transition-colors duration-300',
-            isDarkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'
-        )}>
+        <div className="min-h-screen transition-colors duration-300 bg-white text-gray-900 dark:bg-zinc-900 dark:text-white">
             {/* Navigation */}
             <header className={cn(
                 'sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
@@ -59,7 +69,7 @@ export default function MainLayout({
 
                     <div className="flex items-center gap-4">
                         <button
-                            onClick={() => setIsDarkMode(!isDarkMode)}
+                            onClick={toggleDarkMode}
                             className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                         >
                             {isDarkMode ? (

@@ -31,7 +31,7 @@ export default function Page() {
             </Table>
 
             <Separator className="my-4" />
-            <p className="text-sm font-light text-gray-800">{TEMPLATES.shipfast.description}</p>
+            <p className="text-sm font-light text-gray-800 dark:text-gray-200">{TEMPLATES.shipfast.description}</p>
 
             {/* Display features by category */}
             <div className="space-y-6 mt-4">
