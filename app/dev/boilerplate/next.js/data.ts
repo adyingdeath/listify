@@ -123,6 +123,54 @@ const TEMPLATES: TemplatesType = {
             ]
         },
     },
+    opensaas: {
+        name: "OpenSaaS",
+        price: "$199,$249,$299",
+        url: "https://shipfa.st",
+        icon: "/res/dev/boilerplate/next.js/shipfast.icon.ico",
+        image: "/res/dev/boilerplate/next.js/shipfast.webp",
+        description: "ShipFast is a comprehensive Next.js boilerplate designed for rapid SaaS and web application development. It integrates essential features including Stripe/LemonSqueezy for payments, MongoDB/Supabase for database management, and Google OAuth/Magic Links for authentication. The boilerplate comes with a modern UI built on Tailwind CSS and Shadcn UI, complete with dark mode support. It also includes pre-built components for SEO optimization, blog functionality, email integration, and waitlist management. Perfect for entrepreneurs looking to launch their web projects quickly without dealing with repetitive technical setups.",
+        short_features: [
+            { ...FEATURES.STRIPE, status: "with" },
+            { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+            { ...FEATURES.LANDING_PAGE, status: "with" },
+            { ...FEATURES.GOOGLE_AUTH, status: "with" },
+            { ...FEATURES.EMAIL, status: "with" },
+            { ...FEATURES.DARK_MODE, status: "with" },
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.BLOG, status: "with" },
+                { ...FEATURES.SEO, status: "with" },
+                { ...FEATURES.EMAIL, status: "with" },
+                { ...FEATURES.WAITLIST, status: "with" },
+                { ...FEATURES.LANDING_PAGE, status: "with" },
+            ],
+            "Payment": [
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+            ],
+            "Auth": [
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" },
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+            ],
+            "Tech Stack": [
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.TAILWIND, status: "with" },
+                { ...FEATURES.DAISYUI, status: "with" },
+                { ...FEATURES.SUPABASE, status: "with" },
+                { ...FEATURES.MONGODB, status: "with" },
+            ],
+            "Others": [
+                { ...FEATURES.DARK_MODE, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" },
+                { ...FEATURES.TUTORIALS, status: "with" },
+                { ...FEATURES.CODE_TEMPLATE, status: "with" },
+                { ...FEATURES.CHATGPT_PROMPT_FOR_TERMS_AND_CONDITIONS, status: "with" },
+            ]
+        },
+    },
 };
 
 export { TEMPLATES };
