@@ -6,19 +6,9 @@ import { IoClose, IoMenu } from "react-icons/io5";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LucideIcon } from 'lucide-react';
+import { navigationItems } from '@/layouts/MainLayout';
 
-interface NavigationItem {
-    name: string;
-    href: string;
-    icon: LucideIcon;
-}
-
-interface MobileMenuProps {
-    navigationItems: NavigationItem[];
-}
-
-export default function MobileMenu({ navigationItems }: MobileMenuProps) {
+export default function MobileMenu() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const pathname = usePathname();

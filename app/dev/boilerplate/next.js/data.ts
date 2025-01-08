@@ -33,6 +33,8 @@ export const FEATURES = {
     EMAIL: { id: "email", label: "Email" },
     WAITLIST: { id: "waitlist", label: "Waitlist" },
     DARK_MODE: { id: "dark-mode", label: "Dark mode" },
+    TUTORIALS: { id: "tutorials", label: "Tutorials" },
+    CODE_TEMPLATE: { id: "code-template", label: "Code Template" },
 
     // Deployment Features
     VERCEL: { id: "vercel", label: "Vercel Deploy" },
@@ -42,6 +44,9 @@ export const FEATURES = {
     SHADCN_UI: { id: "shadcn-ui", label: "Shadcn UI" },
     DAISYUI: { id: "daisyui", label: "DaisyUI" },
     TYPESCRIPT: { id: "typescript", label: "Typescript" },
+
+    // Others
+    CHATGPT_PROMPT_FOR_TERMS_AND_CONDITIONS: { id: "chatgpt-prompt-for-terms-and-conditions", label: "ChatGPT Prompt for terms & privacy", status: "with" },
 } as const;
 
 // Type for the values in FEATURES
@@ -112,6 +117,9 @@ const TEMPLATES: TemplatesType = {
             "Others": [
                 { ...FEATURES.DARK_MODE, status: "with" },
                 { ...FEATURES.VERCEL, status: "with" },
+                { ...FEATURES.TUTORIALS, status: "with" },
+                { ...FEATURES.CODE_TEMPLATE, status: "with" },
+                { ...FEATURES.CHATGPT_PROMPT_FOR_TERMS_AND_CONDITIONS, status: "with" },
             ]
         },
     },

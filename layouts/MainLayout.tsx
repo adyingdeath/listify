@@ -1,38 +1,20 @@
-"use client";
-
-import { useState, useEffect } from 'react';
-import { LuSun, LuMoon, LuGithub } from "react-icons/lu";
 import { Home, List } from 'lucide-react';
+import { LuGithub } from "react-icons/lu";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import MobileMenu from '@/components/mobile-menu';
+import ThemeToggle from '@/components/theme-toggle';
+
+export const navigationItems = [
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'Lists', href: '/lists', icon: List },
+];
 
 export default function MainLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    const pathname = usePathname();
-
-    useEffect(() => {
-        // Check system preference on mount
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setIsDarkMode(true);
-            document.documentElement.classList.add('dark');
-        }
-    }, []);
-
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-        document.documentElement.classList.toggle('dark');
-    };
-
-    const navigationItems = [
-        { name: 'Home', href: '/', icon: Home },
-        { name: 'Lists', href: '/lists', icon: List },
-    ];
 
     return (
         <div className="min-h-screen transition-colors duration-300 bg-white text-gray-900 dark:bg-zinc-900 dark:text-white">
@@ -54,9 +36,7 @@ export default function MainLayout({
                                         href={item.href}
                                         className={cn(
                                             'flex items-center gap-2 px-3 py-2 rounded-md transition-colors',
-                                            pathname === item.href
-                                                ? 'bg-primary/10 text-primary'
-                                                : 'hover:bg-primary/5'
+                                            'hover:bg-primary/5'
                                         )}
                                     >
                                         <Icon className="h-4 w-4" />
@@ -68,16 +48,7 @@ export default function MainLayout({
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <button
-                            onClick={toggleDarkMode}
-                            className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        >
-                            {isDarkMode ? (
-                                <LuSun className="h-5 w-5" />
-                            ) : (
-                                <LuMoon className="h-5 w-5" />
-                            )}
-                        </button>
+                        <ThemeToggle />
                         <a
                             href="https://github.com/adyingdeath/listify"
                             target="_blank"
@@ -86,7 +57,7 @@ export default function MainLayout({
                         >
                             <LuGithub className="h-5 w-5" />
                         </a>
-                        <MobileMenu navigationItems={navigationItems} />
+                        <MobileMenu />
                     </div>
                 </nav>
             </header>
