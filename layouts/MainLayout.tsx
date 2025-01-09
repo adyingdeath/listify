@@ -7,7 +7,6 @@ import ThemeToggle from '@/components/theme-toggle';
 
 export const navigationItems = [
     { name: 'Home', href: '/', icon: Home },
-    { name: 'Lists', href: '/lists', icon: List },
 ];
 
 export default function MainLayout({
@@ -49,14 +48,6 @@ export default function MainLayout({
 
                     <div className="flex items-center gap-4">
                         <ThemeToggle />
-                        <a
-                            href="https://github.com/adyingdeath/listify"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        >
-                            <LuGithub className="h-5 w-5" />
-                        </a>
                         <MobileMenu />
                     </div>
                 </nav>
