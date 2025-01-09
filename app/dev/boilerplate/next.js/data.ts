@@ -54,7 +54,12 @@ export const FEATURES = {
 
     ROLE_BASED_ACCESS: { id: "rbac", label: "Role Based Access Control" },
     DOCUMENTATION: { id: "documentation", label: "Documentation" },
-    I18N: { id: "i18n", label: "i18n" }
+    I18N: { id: "i18n", label: "i18n" },
+    FORM_BUILDER: { id: "form-builder", label: "Form Builder" },
+    FEATURE_FLAGS: { id: "feature-flags", label: "Feature Flags" },
+    CHAKRA_UI: { id: "chakra-ui", label: "Chakra UI" },
+    STORYBOOK: { id: "storybook", label: "Storybook" },
+    FIGMA_DESIGN: { id: "figma-design", label: "Figma Design Kit" },
 } as const;
 
 // Type for the values in FEATURES
@@ -260,6 +265,97 @@ const TEMPLATES: TemplatesType = {
                 { ...FEATURES.ROLE_BASED_ACCESS, status: "with" },
                 { ...FEATURES.NEWSLETTER, status: "with" },
                 { ...FEATURES.CONTACT_FORM, status: "with" }
+            ]
+        }
+    },
+    nextbase: {
+        name: "Nextbase",
+        price: "$99,$299,$399",
+        url: "https://usenextbase.com",
+        icon: "/res/dev/boilerplate/next.js/nextbase.icon.webp",
+        image: "/res/dev/boilerplate/next.js/nextbase.webp",
+        description: "Nextbase is a comprehensive Next.js starter kit designed for building modern SaaS applications. It provides essential features like authentication with 15+ social logins, organization management, payment integration (Stripe/Lemonsqueezy), and an admin panel with user impersonation. Built with Shadcn UI components, it includes built-in blog functionality, feedback collection, roadmap management, and changelog features. Perfect for developers looking to launch their SaaS products quickly with enterprise-grade features and scalability.",
+        short_features: [
+            { ...FEATURES.SUPABASE, status: "with" },
+            { ...FEATURES.STRIPE, status: "with" },
+            { ...FEATURES.SHADCN_UI, status: "with" },
+            { ...FEATURES.ROLE_BASED_ACCESS, status: "with" }
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.BLOG, status: "with" },
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.ANALYTICS, status: "with" }
+            ],
+            "Payment": [
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "with" }
+            ],
+            "Auth": [
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.GITHUB_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.SUPABASE, status: "with" },
+                { ...FEATURES.SHADCN_UI, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.ROLE_BASED_ACCESS, status: "with" },
+                { ...FEATURES.NEWSLETTER, status: "with" },
+                { ...FEATURES.CONTACT_FORM, status: "with" },
+                { ...FEATURES.FEATURE_FLAGS, status: "with" },
+                { ...FEATURES.I18N, status: "with" }
+            ]
+        }
+    },
+    shipped: {
+        name: "Shipped",
+        price: "$157,$207",
+        url: "https://shipped.club",
+        icon: "/res/dev/boilerplate/next.js/shipped.icon.webp",
+        image: "/res/dev/boilerplate/next.js/shipped.webp",
+        description: "Shipped is a comprehensive Next.js SaaS boilerplate designed for busy founders to launch products quickly. It provides essential features including Lemon Squeezy payments, social authentication, email management, and database integration with Prisma ORM. The boilerplate comes with modern UI components built on Chakra UI, Tailwind CSS, and Shadcn UI. It includes ready-to-use landing pages, blog functionality, beautiful dashboards, and SEO optimization. Perfect for entrepreneurs who want to save weeks of development time and start monetizing their SaaS products quickly.",
+        short_features: [
+            { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+            { ...FEATURES.LANDING_PAGE, status: "with" },
+            { ...FEATURES.GOOGLE_AUTH, status: "with" },
+            { ...FEATURES.BLOG, status: "with" },
+            { ...FEATURES.TAILWIND, status: "with" }
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.LANDING_PAGE, status: "with" },
+                { ...FEATURES.BLOG, status: "with" },
+                { ...FEATURES.WAITLIST, status: "with" },
+                { ...FEATURES.ANALYTICS, status: "with" },
+                { ...FEATURES.SEO, status: "with" },
+                { ...FEATURES.NEWSLETTER, status: "with" }
+            ],
+            "Payment": [
+                { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+                { ...FEATURES.STRIPE, status: "without" }
+            ],
+            "Auth": [
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" },
+                { ...FEATURES.EMAIL_AUTH, status: "with" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.TAILWIND, status: "with" },
+                { ...FEATURES.CHAKRA_UI, status: "with" },
+                { ...FEATURES.SHADCN_UI, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.EMAIL, status: "with" },
+                { ...FEATURES.DARK_MODE, status: "without" },
+                { ...FEATURES.I18N, status: "without" }
             ]
         }
     }
