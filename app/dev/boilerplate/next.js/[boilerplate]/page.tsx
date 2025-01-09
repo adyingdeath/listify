@@ -8,6 +8,21 @@ import { notFound } from "next/navigation";
 
 import { FaAngleRight } from "react-icons/fa6";
 import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ boilerplate: string }> }): Promise<Metadata> {
+    const info = TEMPLATES[(await params).boilerplate];
+
+    return {
+        title: `${info.name} - Next.js Boilerplate, Listify`,
+        description: info.description,
+        openGraph: {
+            title: `${info.name} - Next.js Boilerplate, Listify`,
+            description: info.description,
+            images: [info.image],
+        },
+    };
+}
 
 interface PageProps {
     params: Promise<{
