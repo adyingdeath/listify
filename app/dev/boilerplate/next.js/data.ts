@@ -11,55 +11,48 @@ export type FeatureWithStatus = Feature & {
 
 // All available features
 export const FEATURES = {
-    // Payment Features
+    // Must have features
     STRIPE: { id: "stripe", label: "Stripe" },
     LEMON_SQUEEZY: { id: "lemonsqueezy", label: "Lemonsqueezy" },
-
-    // Auth Features
+    EMAIL_AUTH: { id: "email-auth", label: "Email Auth" },
     GOOGLE_AUTH: { id: "google-auth", label: "Google OAuth" },
+    LANDING_PAGE: { id: "landing-page", label: "Landing Page" },
+    WAITLIST: { id: "waitlist", label: "Waitlist" },
+    TUTORIALS: { id: "tutorials", label: "Tutorials" },// This boilerplate has tutorials on its website
+    TYPESCRIPT: { id: "typescript", label: "Typescript" },
+    DARK_MODE: { id: "dark-mode", label: "Dark mode" },
+
+    // Optional features
+    CHARGEBEE: { id: "chargebee", label: "Chargebee" },
+    TEAM_MANAGEMENT: { id: "team-management", label: "Team Management" },// This boilerplate has team management functionality
     GITHUB_AUTH: { id: "github-auth", label: "Github OAuth" },
     MAGIC_LINKS: { id: "magic-links", label: "Magic Links" },
-    EMAIL_AUTH: { id: "email-auth", label: "Email Auth" },
-
-    // Database Features
     MONGODB: { id: "mongodb", label: "MongoDB" },
     POSTGRES: { id: "postgres", label: "Postgres" },
     SUPABASE: { id: "supabase", label: "Supabase" },
-
-    // Core Features
-    LANDING_PAGE: { id: "landing-page", label: "Landing Page" },
-    BLOG: { id: "blog", label: "Blog" },
+    BLOG: { id: "blog", label: "Blog" },// There is a blog system in this boilerplate
     SEO: { id: "seo", label: "SEO" },
     EMAIL: { id: "email", label: "Email" },
-    WAITLIST: { id: "waitlist", label: "Waitlist" },
-    DARK_MODE: { id: "dark-mode", label: "Dark mode" },
-    TUTORIALS: { id: "tutorials", label: "Tutorials" },
     CODE_TEMPLATE: { id: "code-template", label: "Code Template" },
-
-    // Deployment Features
     VERCEL: { id: "vercel", label: "Vercel Deploy" },
-
-    // Tech Stack Features
     TAILWIND: { id: "tailwind", label: "Tailwind" },
     SHADCN_UI: { id: "shadcn-ui", label: "Shadcn UI" },
     DAISYUI: { id: "daisyui", label: "DaisyUI" },
-    TYPESCRIPT: { id: "typescript", label: "Typescript" },
     FIREBASE: { id: "firebase", label: "Firebase" },
-
-    // Others
-    CHATGPT_PROMPT_FOR_TERMS_AND_CONDITIONS: { id: "chatgpt-prompt-for-terms-and-conditions", label: "ChatGPT Prompt for terms & privacy", status: "with" },
+    CHATGPT_PROMPT_FOR_TERMS_AND_CONDITIONS: { id: "chatgpt-prompt-for-terms-and-conditions", label: "ChatGPT Prompt for terms & privacy", status: "with" },// It provides a prompt for generating terms and conditions easily
     NEWSLETTER: { id: "newsletter", label: "Newsletter" },
     CONTACT_FORM: { id: "contact-form", label: "Contact Form" },
     ANALYTICS: { id: "analytics", label: "Analytics" },
-
     ROLE_BASED_ACCESS: { id: "rbac", label: "Role Based Access Control" },
     DOCUMENTATION: { id: "documentation", label: "Documentation" },
     I18N: { id: "i18n", label: "i18n" },
-    FORM_BUILDER: { id: "form-builder", label: "Form Builder" },
+    FORM_BUILDER: { id: "form-builder", label: "Form Builder" },// Provides a form builder for creating forms easily
     FEATURE_FLAGS: { id: "feature-flags", label: "Feature Flags" },
     CHAKRA_UI: { id: "chakra-ui", label: "Chakra UI" },
     STORYBOOK: { id: "storybook", label: "Storybook" },
     FIGMA_DESIGN: { id: "figma-design", label: "Figma Design Kit" },
+    GRAPHQL: { id: "graphql", label: "GraphQL" },
+    PRISMA: { id: "prisma", label: "Prisma" },
 } as const;
 
 // Type for the values in FEATURES
@@ -355,7 +348,218 @@ const TEMPLATES: TemplatesType = {
                 { ...FEATURES.DOCUMENTATION, status: "with" },
                 { ...FEATURES.EMAIL, status: "with" },
                 { ...FEATURES.DARK_MODE, status: "without" },
+            ]
+        }
+    },
+    supaboost: {
+        name: "Supaboost",
+        price: "$150",
+        url: "https://www.supaboost.dev",
+        icon: "/res/dev/boilerplate/next.js/supaboost.icon.webp",
+        image: "/res/dev/boilerplate/next.js/supaboost.webp",
+        description: "Supaboost is a comprehensive Next.js 14 and Supabase SaaS starter kit designed for rapid application development. It features Lemon Squeezy integration for global payments and tax handling, complete user management with role-based access control, and a polished UI built with Shadcn UI. The boilerplate emphasizes developer experience with TypeScript support, clear code structure, and extensive documentation. Perfect for developers looking to launch B2B SaaS applications quickly while maintaining professional standards and scalability.",
+        short_features: [
+            { ...FEATURES.TYPESCRIPT, status: "with" },
+            { ...FEATURES.ROLE_BASED_ACCESS, status: "with" },
+            { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+            { ...FEATURES.SHADCN_UI, status: "with" }
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.LANDING_PAGE, status: "with" },
+                { ...FEATURES.DARK_MODE, status: "with" },
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.ANALYTICS, status: "with" }
+            ],
+            "Payment": [
+                { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+                { ...FEATURES.STRIPE, status: "without" }
+            ],
+            "Auth": [
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+                { ...FEATURES.ROLE_BASED_ACCESS, status: "with" },
+                { ...FEATURES.GOOGLE_AUTH, status: "without" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.SUPABASE, status: "with" },
+                { ...FEATURES.SHADCN_UI, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.FORM_BUILDER, status: "with" },
+                { ...FEATURES.CODE_TEMPLATE, status: "with" },
                 { ...FEATURES.I18N, status: "without" }
+            ]
+        }
+    },
+    supastarter: {
+        name: "Supastarter",
+        price: "$299",
+        url: "https://supastarter.dev",
+        icon: "/res/dev/boilerplate/next.js/supastarter.icon.webp",
+        image: "/res/dev/boilerplate/next.js/supastarter.webp",
+        description: "Supastarter is a comprehensive Next.js SaaS starter kit focused on rapid development of production-ready applications. It provides essential SaaS functionalities including authentication with multiple methods, payment integrations, and internationalization support. Built with a modern tech stack featuring Tailwind CSS and Radix UI, it offers a fully customizable UI system compatible with shadcn/ui. The boilerplate includes serverless architecture support and comes with ready-to-use features like blog, documentation, and analytics. Ideal for indie hackers and developers looking to launch their SaaS products quickly while maintaining scalability for future growth.",
+        short_features: [
+            { ...FEATURES.STRIPE, status: "with" },
+            { ...FEATURES.DARK_MODE, status: "with" },
+            { ...FEATURES.I18N, status: "with" },
+            { ...FEATURES.ROLE_BASED_ACCESS, status: "with" }
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.LANDING_PAGE, status: "with" },
+                { ...FEATURES.BLOG, status: "with" },
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.CONTACT_FORM, status: "with" },
+                { ...FEATURES.NEWSLETTER, status: "with" },
+                { ...FEATURES.ANALYTICS, status: "with" }
+            ],
+            "Payment": [
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "with" },
+                { ...FEATURES.CHARGEBEE, status: "with" }
+            ],
+            "Auth": [
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.TAILWIND, status: "with" },
+                { ...FEATURES.SHADCN_UI, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.DARK_MODE, status: "with" },
+                { ...FEATURES.I18N, status: "with" },
+                { ...FEATURES.ROLE_BASED_ACCESS, status: "with" },
+                { ...FEATURES.EMAIL, status: "with" },
+                { ...FEATURES.TEAM_MANAGEMENT, status: "with" }
+            ]
+        }
+    },
+    bedrock: {
+        name: "Bedrock",
+        price: "$396",
+        url: "https://bedrock.mxstbr.com",
+        icon: "/res/dev/boilerplate/next.js/bedrock.icon.webp",
+        image: "/res/dev/boilerplate/next.js/bedrock.webp",
+        description: "Bedrock is a production-ready Next.js boilerplate designed for building scalable SaaS products. It combines essential tools from the JavaScript ecosystem with a focus on developer experience and type safety. The boilerplate features magic link authentication, team management capabilities, and Stripe subscription payments out of the box. Built with a modular approach, it allows developers to easily remove or swap optional components while maintaining a solid foundation. Perfect for teams looking to quickly launch professional SaaS applications without compromising on code quality or scalability.",
+        short_features: [
+            { ...FEATURES.TYPESCRIPT, status: "with" },
+            { ...FEATURES.TEAM_MANAGEMENT, status: "with" },
+            { ...FEATURES.MAGIC_LINKS, status: "with" },
+            { ...FEATURES.STRIPE, status: "with" }
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.LANDING_PAGE, status: "without" },
+                { ...FEATURES.WAITLIST, status: "without" },
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.DARK_MODE, status: "without" }
+            ],
+            "Payment": [
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "without" }
+            ],
+            "Auth": [
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" },
+                { ...FEATURES.GOOGLE_AUTH, status: "without" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.GRAPHQL, status: "with" },
+                { ...FEATURES.PRISMA, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.TEAM_MANAGEMENT, status: "with" },
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.TUTORIALS, status: "without" }
+            ]
+        }
+    },
+    nextacular: {
+        name: "Nextacular",
+        price: "Free",
+        url: "https://nextacular.co",
+        icon: "/res/dev/boilerplate/next.js/nextacular.icon.webp",
+        image: "/res/dev/boilerplate/next.js/nextacular.webp",
+        description: "Nextacular is an open-source Next.js boilerplate designed for building modern SaaS applications. It provides a solid foundation with Next.js and Prisma integration, along with essential features like Stripe payments and Tailwind CSS styling. As an MIT-licensed project, it's suitable for both personal and client projects, offering a streamlined approach to launching SaaS products with modern web technologies. The boilerplate emphasizes simplicity and extensibility, making it an ideal choice for developers looking to kickstart their SaaS journey without complex setup requirements.",
+        short_features: [
+            { ...FEATURES.STRIPE, status: "with" },
+            { ...FEATURES.TAILWIND, status: "with" },
+            { ...FEATURES.PRISMA, status: "with" },
+            { ...FEATURES.TYPESCRIPT, status: "without" },
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.LANDING_PAGE, status: "with" },
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.TYPESCRIPT, status: "without" },
+            ],
+            "Payment": [
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "without" }
+            ],
+            "Auth": [
+                { ...FEATURES.EMAIL_AUTH, status: "without" },
+                { ...FEATURES.GOOGLE_AUTH, status: "without" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.TAILWIND, status: "with" },
+                { ...FEATURES.PRISMA, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.DARK_MODE, status: "without" },
+                { ...FEATURES.WAITLIST, status: "without" },
+                { ...FEATURES.TUTORIALS, status: "without" }
+            ]
+        }
+    },
+    "nextless.js": {
+        name: "NextlessJS",
+        price: "$699,$2099",
+        url: "https://nextlessjs.com",
+        icon: "/res/dev/boilerplate/next.js/nextless.js.icon.webp",
+        image: "/res/dev/boilerplate/next.js/nextless.js.webp",
+        description: "NextlessJS is a Next.js boilerplate focused on serverless architecture and rapid development of SaaS applications. It provides a complete authentication system with multiple providers, subscription management with Stripe integration, and a modern UI built with Chakra UI. The boilerplate emphasizes developer experience with clear documentation and TypeScript support throughout. Ideal for developers looking to build scalable SaaS applications with minimal backend configuration.",
+        short_features: [
+            { ...FEATURES.STRIPE, status: "with" },
+            { ...FEATURES.CHAKRA_UI, status: "with" },
+            { ...FEATURES.TYPESCRIPT, status: "with" },
+            { ...FEATURES.DARK_MODE, status: "with" }
+        ],
+        features: {
+            "Core": [
+                { ...FEATURES.LANDING_PAGE, status: "with" },
+                { ...FEATURES.DARK_MODE, status: "with" },
+                { ...FEATURES.TYPESCRIPT, status: "with" },
+                { ...FEATURES.DOCUMENTATION, status: "with" },
+                { ...FEATURES.WAITLIST, status: "without" }
+            ],
+            "Payment": [
+                { ...FEATURES.STRIPE, status: "with" },
+                { ...FEATURES.LEMON_SQUEEZY, status: "without" }
+            ],
+            "Auth": [
+                { ...FEATURES.EMAIL_AUTH, status: "with" },
+                { ...FEATURES.GOOGLE_AUTH, status: "with" },
+                { ...FEATURES.GITHUB_AUTH, status: "with" },
+                { ...FEATURES.MAGIC_LINKS, status: "with" }
+            ],
+            "Tech Stack": [
+                { ...FEATURES.CHAKRA_UI, status: "with" },
+                { ...FEATURES.PRISMA, status: "with" },
+                { ...FEATURES.POSTGRES, status: "with" },
+                { ...FEATURES.VERCEL, status: "with" }
+            ],
+            "Others": [
+                { ...FEATURES.ANALYTICS, status: "with" },
+                { ...FEATURES.SEO, status: "with" },
+                { ...FEATURES.ROLE_BASED_ACCESS, status: "with" },
+                { ...FEATURES.TUTORIALS, status: "with" }
             ]
         }
     }
